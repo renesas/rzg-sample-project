@@ -41,9 +41,9 @@ A lightweight Flask-based web server for visualizing real-time CPU usage monitor
    ```
 4. Run a container using the image:
    ```bash
-   docker run -d -p 5000:5000 --name cpu-monitor-container cpu-monitor
+   docker run -d -p 5000:5000 -v /etc/issue:/etc/issue:ro --name cpu-monitor-container cpu-monitor
    ```
-5. (Optional) If needed, start the container manually:
+5. Start the container manually:
    ```bash
    docker start -i <container-id>
    ```

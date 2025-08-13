@@ -55,6 +55,14 @@ def calculate_cpu_usage(prev_stats, prev_cores_stats):
     # Return the updated stats
     return cpu_usage, aggregate_stats, cpu_cores_stats
 
+def get_vlp_ver():
+    with open('/etc/issue', 'r') as f:
+        lines = f.readlines()
+    issue_file = ''.join(lines).strip()
+    vlp_ver = issue_file.split("Version: ")[1]
+    return vlp_ver
+
+
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -66,6 +74,9 @@ def connect():
 def send_data():
     # Initial values for previous total stats
     prev_stats, prev_cores_stats = get_cpu_load()
+    
+    vlp_ver = get_vlp_ver()
+    socketio.emit('vlp_ver', {'ver': vlp_ver})
 
     while True:
         

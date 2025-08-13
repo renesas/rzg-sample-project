@@ -81,6 +81,10 @@ function updateMainChart() {
   chartRefs.main = createChart(ctx, selectedChart.toUpperCase(), colors[selectedChart], true);
 }
 
+socket.on('vlp_ver', data => {
+  document.getElementById('Firmware').innerText = 'VLP version: ' + data.ver;
+});
+
 socket.on('system_data', data => {
   if (!chartRefs.miniCpu) {
     chartRefs.miniCpu = createChart(document.getElementById('miniCpu').getContext('2d'), 'CPU', colors.cpu);
