@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>System Monitor</title>
+  <script>
+    let uiVersion = "v1.0.0";
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body class="dark">
+  <div class="container">
+    <div class="sidebar">
+      <h2>System Monitor</h2>
+      <div class="mini-charts">
+        <div class="mini-chart" onclick="selectChart('cpu')">
+          <canvas id="miniCpu" width="86" height="40" style="display: block; box-sizing: border-box; height: 40px; width: 69px;">
+          </canvas>
+          <span>CPU</span>
+        </div>
+        <div class="mini-chart" onclick="selectChart('cpu0')">
+          <canvas id="miniCpu0" width="86" height="40" style="display: block; box-sizing: border-box; height: 40px; width: 69px;">
+          </canvas>
+          <span>CPU core 0</span>
+        </div>
+        <div class="mini-chart" onclick="selectChart('cpu1')">
+          <canvas id="miniCpu1" width="86" height="40" style="display: block; box-sizing: border-box; height: 40px; width: 69px;">
+          </canvas>
+          <span>CPU core 1</span>
+        </div>
+      </div>
+      <div class="theme-toggle">
+        <label><input type="checkbox" id="themeSwitch" /> Toggle Light/Dark</label>
+      </div>
+    </div>
+    <div class="main-content">
+      <div class="main-chart-area">
+        <h2 id="mainChartTitle" class="main-title">CPU Usage</h2>
+        <canvas id="mainChartCanvas"></canvas>
+      </div>
+
+      <div id="infoBar" class="info-bar">
+        <span id="currentTime">Time: --:--:--</span>
+        <span id="Firmware">FW version: --</span>
+        <span id="ui">UI version: --</span>
+      </div>
+      <script>
+        document.getElementById("ui").innerHTML = "UI version: " + uiVersion;
+      </script>
+    </div>
+  </div>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
