@@ -125,6 +125,10 @@ You should see the live CPU monitor dashboard, showing:
 - CPU core 0 usage
 - CPU core 1 usage
 
+Snapshot of the server webpage
+
+<img src="images/cpu_monitor.png" alt="Alt text" width="900"/>
+
 ---
 
 ## Tech Stack
