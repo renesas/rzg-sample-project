@@ -28,6 +28,11 @@ A lightweight Flask-based web server for visualizing real-time CPU usage monitor
 - Docker installed
 - Static IP configured for your Ethernet connection (for server access)
 
+### How to assign Static IP
+
+- Please refer to "docs/Setting_Up_Static_IP_address_in_G2L_Board.pdf"
+- Follow the steps mentioned in the pdf
+
 ### Build & Run
 
 1. Copy the complete project folder to your device.
@@ -47,7 +52,8 @@ A lightweight Flask-based web server for visualizing real-time CPU usage monitor
    ```bash
    docker start -i <container-id>
    ```
-
+6. Start the container automatically with board bootup:
+   Please refer to "docs/Autoboot_docker_service_in_G2L_Board.pdf"
 ---
 
 ## Accessing the Web Server
